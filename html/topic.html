@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/reponsive.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading">
+        <div class="loading__loader"></div>
+    </div>
+    <!-- End Loading Screen -->
+    <div class="app">
+        <!-- điều hướng -->
+        <div class="go-up position-fixed text-white text-center rounded-pill d-none cursor-pointer">
+            <i class="fa-solid fa-up-long"></i>
+        </div>
+        <!-- Phần header -->
+        <header class="header">
+            <div class="containers">
+                <div class="header__level d-flex justify-content-between pt-1 pb-1">
+                    <div class="header__left d-flex align-items-center">
+                        <div title="Trang chủ" class="header__left-logo ">
+                            <img src="../assets/img/logo.png" alt="" class="h-100">
+                        </div>
+                        <div class="header__left-search position-relative">
+                            <div class="input__group d-flex align-items-center">
+                                <input type="text" class="input flex-grow-1 border-0 p-2" placeholder="Nhập nội dung tìm kiếm" >
+                                <button class="btn btn-search p-0 fs-6">
+                                    <i class="fas fa-search p-2"></i>
+                                </button>
+                            </div>
+                            <div class="header__search-list position-absolute d-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__right d-flex align-items-center">
+                        <div class="header__right-icon d-flex align-items-center gap-2">
+                            <div class="right__icon-user position-relative mt-1">
+                                <i title="Cá nhân" class="fa-regular fa-user fs-5 opacity-50 cursor-pointer"></i>
+                                <div class="user__downdrop position-absolute d-none">
+                                    <h4>Tài khoản</h4>
+                                    <div class="user__downdrop-item">
+                                        <p class="opacity-50">Bạn đồng ý với việc Đăng nhập/Đăng ký tài khoản chứ!</p>
+                                        <div class="form-check">
+                                            <input type="checkbox" id="checkbox" class="form-check-input">
+                                            <label class="form-check-label" for="checkbox">Tôi đã đọc và đồng ý với Điều khoản sử dụng và Chính sách bảo mật</label>
+                                        </div>
+                                    </div>
+                                    <div class="user__downdrop-item2 d-flex gap-2 d-none">
+                                        <div class="downdrop__items-avatar rounded-pill">
+                                            
+                                        </div>
+                                        <div class="downdrop__items-info">
+                                            <h5></h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                    <div class="user__downdrop-button pt-2 ">
+                                        <button class="btn btn-primary w-100 btn__login" disabled data-bs-toggle="modal" data-bs-target="#authModal">Đăng Nhập</button>
+                                        <button class="btn btn-primary w-100 btn__logout d-none">Đăng Xuất</button>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="authModalLabel">Login</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="loginForm">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label for="loginEmail" class="form-label">Email</label>
+                                                            <input type="email" class="form-control loginEmail" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="loginPassword" class="form-label">Password</label>
+                                                            <input type="password" class="form-control loginPassword" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                                                    </form>
+                                                    <p class="mt-3 text-center">
+                                                        Chưa có tài khoản? <a href="#" class="switchToRegister">Đăng ký</a>
+                                                    </p>
+                                                </div>
+                                
+                                                <div id="registerForm" style="display: none;">
+                                                    <form>
+                                                        <div class="mb-3">
+                                                            <label for="registerUser" class="form-label">Tên đăng nhập</label>
+                                                            <input type="text" class="form-control registerUser" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="registerEmail" class="form-label">Email</label>
+                                                            <input type="email" class="form-control registerEmail" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="registerPassword" class="form-label">Mật khẩu</label>
+                                                            <input type="password" class="form-control registerPassword" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-success w-100">Register</button>
+                                                    </form>
+                                                    <p class="mt-3 text-center">
+                                                        Đã có tài khoản? <a href="#" class="switchToLogin">Đăng nhập</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right__icon-block d-flex flex-wrap gap-1 align-items-center justify-content-center rounded-2 opacity-50">
+                                <i class="fa-regular fa-square"></i>
+                                <i class="fa-regular fa-square"></i>
+                                <i class="fa-regular fa-square"></i>
+                                <i class="fa-regular fa-square"></i>
+                            </div>
+                            <div class="right__icon-search d-none">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Kết thúc phần header -->
+
+        <!-- Phần section1 -->
+        <section class="section1 position-relative">
+            <div class="navbar p-0">
+                <div class="containers">
+                    <div class="navbar__menus d-flex w-100 justify-content-between align-items-center">
+                        <div class="menu__left d-flex text-white">
+                            <nav class="navbar__menu-lists d-flex">
+                                <a class="" href="./index.html">NÓNG</a>
+                                <a class="" href="./new.html">MỚI</a>
+                                <a class="" href="./video.html">VIDEO</a>
+                                <a class="active" href="./topic.html">CHỦ ĐỀ</a>
+                            </nav>
+                            <div class="navbar__menu-topic d-flex align-items-center gap-1 ms-1">
+                                <div class="menu__topic-item rounded-pill"># Năng lượng tích cực</div>
+                                <div class="menu__topic-item rounded-pill"># Khám phá Việt Nam</div>
+                                <div class="menu__topic-item rounded-pill"># Tin Tức Nóng</div>
+                            </div>
+                        </div>
+                        <div class="navbar__menu-icon" title="Chuyên mục" >
+                            <i class="fas fa-bars text-white h-100"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar__menu-full position-absolute pt-3 pb-2 d-none">
+                <div class="containers">
+                    <div class="menu__full-lists d-flex flex-wrap">
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">BÓNG ĐÁ</h2>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">THẾ GIỚI</h2>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">XÃ HỘI</h2>
+                            <ul>
+                                <li>Thời sự</li>
+                                <li>Giao thông</li>
+                                <li>Môi trường</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">VĂN HÓA</h2>
+                            <ul>
+                                <li>Nghệ thuật</li>
+                                <li>Ẩm thực</li>
+                                <li>Du lịch</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">KINH TẾ</h2>
+                            <ul>
+                                <li>Lao động - Việc làm</li>
+                                <li>Tài chính</li>
+                                <li>Chứng khoán</li>
+                                <li>Kinh doanh</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">GIÁO DỤC</h2>
+                            <ul>
+                                <li>Học bổng - Du lịch</li>
+                                <li>Đào tạo - Thi cử</li>
+                                <li>Tuyển sinh 2024</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">THỂ THAO</h2>
+                            <ul>
+                                <li>Bóng đá quốc tế</li>
+                                <li>Bóng đá Việt Nam</li>
+                                <li>Quần vợt</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">GIẢI TRÍ</h2>
+                            <ul>
+                                <li>Âm nhạc</li>   
+                                <li>Thời trang</li>
+                                <li>Điện ảnh - Truyền hình</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">PHÁP LUẬT</h2>
+                            <ul>
+                                <li>An ninh - Trật tự</li>
+                                <li>Hình sự - Dân sự</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">CÔNG NGHỆ</h2>
+                            <ul>
+                                <li>CNTT - Viễn thông</li>
+                                <li>Thiết bị - Phần cứng</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">KHOA HỌC</h2>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">ĐỜI SỐNG</h2>
+                            <ul>
+                                <li>Dinh dưỡng - Làm đẹp</li>
+                                <li>Tình yêu - Hôn nhân</li>
+                                <li>Sức khỏe - Y tế</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">XE CỘ</h2>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">Nhà Đất</h2>
+                            <ul>
+                                <li>Quản lý - Quy hoạch</li>
+                                <li>Không gian - Kiến trúc</li>
+                            </ul>
+                        </div>
+                        <div class="menu__full-item mb-2">
+                            <h2 class="menu__full-heading fs-6 ps-3">TIỆN ÍCH</h2>
+                            <ul>
+                                <li>Kết quả xổ số</li>
+                                <li>Giá vàng hôm nay</li>
+                                <li>Thời tiết</li>
+                                <li>Lịch âm</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Kết thúc section1 -->
+
+        <!-- Phần section8 -->
+        <section class="section8 d-none">
+            <div class="containers">
+                <div class="header__left-search section8__header-left position-relative">
+                    <div class="input__group d-flex align-items-center">
+                        <input type="text" class="input flex-grow-1 border-0 p-2" placeholder="Nhập nội dung tìm kiếm" >
+                        <button class="btn btn-search p-0 fs-6">
+                            <i class="fas fa-search p-2"></i>
+                        </button>
+                    </div>
+                    <div class="header__search-list position-absolute d-none">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Ket thuc section8 -->
+        
+        <!-- Phần section5 -->
+        <section class="section5">
+            <div class="containers">
+                <div class="secion5__heading pb-1 pt-3">
+                    <h3 class="heading__title m-0">CHỦ ĐỀ</h3>
+                </div>
+                <div class="section5__content d-flex flex-wrap">
+                    <div class="section5__content-item section5__content-item1">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#NĂNG LỰC TÍCH CỰC</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title2.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc" class="item__content-heading">
+                                        Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/chinhphu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>11 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>8 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=3" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title3.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine" class="item__content-heading">
+                                        Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/congannhandan.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>19 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=4" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title4.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia" class="item__content-heading">
+                                        Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>59 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>90 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=5" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title5.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay" class="item__content-heading">
+                                        Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/phapluat.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 ngày</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>2 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title8.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng" class="item__content-heading">
+                                        Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/hoahoctro.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>4 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title11.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam" class="item__content-heading">
+                                        Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoilaodong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>4 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>41 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item2">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#SỞ DÂN TỘC</h4>
+                        </div>    
+                        <div class="body__list d-flex gap-2 pt-3 pb-3">
+                            <a href="./page.html?id=6" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title6.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Chuẩn bị thi công nhiều gói thầu sửa chữa hư hỏng cao tốc Nội Bài - Lào Cai" class="item__content-heading">
+                                        Chuẩn bị thi công nhiều gói thầu sửa chữa hư hỏng cao tốc Nội Bài - Lào Cai
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/vov.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>1 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=7" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title7.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Bà Rịa - Vũng Tàu ký biên bản ghi nhớ với Tập đoàn DP World về logistics" class="item__content-heading">
+                                        Bà Rịa - Vũng Tàu ký biên bản ghi nhớ với Tập đoàn DP World về logistics
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/vov.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p></p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=10" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title10.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="MU lãng phí 72 triệu bảng cho một tiền đạo không biết sút" class="item__content-heading">
+                                        MU lãng phí 72 triệu bảng cho một tiền đạo không biết sút
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/tintuc.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>2 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>   
+                    </div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#KHÁM PHÁ THẾ GIỚI</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=12" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item2">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#THỂ THAO</h4>
+                        </div>    
+                        <div class="body__list d-flex gap-2 pt-3 pb-3">
+                            <a href="./page.html?id=6" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title6.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Chuẩn bị thi công nhiều gói thầu sửa chữa hư hỏng cao tốc Nội Bài - Lào Cai" class="item__content-heading">
+                                        Chuẩn bị thi công nhiều gói thầu sửa chữa hư hỏng cao tốc Nội Bài - Lào Cai
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/vov.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>1 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=7" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title7.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Bà Rịa - Vũng Tàu ký biên bản ghi nhớ với Tập đoàn DP World về logistics" class="item__content-heading">
+                                        Bà Rịa - Vũng Tàu ký biên bản ghi nhớ với Tập đoàn DP World về logistics
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/vov.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p></p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=10" class="body__item d-flex gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title10.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="MU lãng phí 72 triệu bảng cho một tiền đạo không biết sút" class="item__content-heading">
+                                        MU lãng phí 72 triệu bảng cho một tiền đạo không biết sút
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/tintuc.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>2 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>   
+                    </div>
+                    <div class="section5__content-item section5__content-item1">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#CHÍNH TRỊ</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title2.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc" class="item__content-heading">
+                                        Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/chinhphu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>11 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>8 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=3" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title3.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine" class="item__content-heading">
+                                        Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/congannhandan.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>19 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=4" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title4.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia" class="item__content-heading">
+                                        Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>59 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>90 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=5" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title5.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay" class="item__content-heading">
+                                        Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/phapluat.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 ngày</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>2 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title8.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng" class="item__content-heading">
+                                        Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/hoahoctro.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>4 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title11.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam" class="item__content-heading">
+                                        Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoilaodong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>4 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>41 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#CÔNG NGHỆ</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=10" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=9" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#XE CỘ</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=7" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#THỊ TRƯỜNG</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=1" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title20.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Giá vàng hôm nay 24-2: Vừa mở cửa đã đồng loạt giảm" class="item__content-heading">
+                                        Giá vàng hôm nay 24-2: Vừa mở cửa đã đồng loạt giảm
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/dautu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>5 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>23 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title21.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Án phạt dành cho thủ môn Nguyễn Filip" class="item__content-heading">
+                                        Án phạt dành cho thủ môn Nguyễn Filip
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoiduatin.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>1 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item section5__content-item1">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#TÌNH HÌNH THẾ GIỚI</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title2.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc" class="item__content-heading">
+                                        Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/chinhphu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>11 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>8 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=3" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title3.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine" class="item__content-heading">
+                                        Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/congannhandan.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>19 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=4" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title4.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia" class="item__content-heading">
+                                        Nga đánh giá tích cực cuộc đàm phán với Mỹ tại Saudi Arabia
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>59 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>90 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=5" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title5.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay" class="item__content-heading">
+                                        Lại lật xe trên tuyến quốc lộ 15D lên cửa khẩu quốc tế La Lay
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/phapluat.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 ngày</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>2 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title8.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng" class="item__content-heading">
+                                        Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/hoahoctro.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>4 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title11.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam" class="item__content-heading">
+                                        Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoilaodong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>4 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>41 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item2">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#TRUY CỨU</h4>
+                        </div>    
+                        <div class="body__list d-flex gap-2 pt-3 pb-3">
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3 flex-column gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title13.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Ba năm xung đột với Ukraine, Nga 'thân' hơn với Trung Quốc, mọi thứ không hẳn đã tốt hơn" class="item__content-heading">
+                                        Ba năm xung đột với Ukraine, Nga 'thân' hơn với Trung Quốc, mọi thứ không hẳn đã tốt hơn
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/thegioi.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>2 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>30 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=9" class="body__item d-flex gap-3 flex-column gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title14.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Nghị quyết 57 là cơ hội có một không hai với các nhà khoa học" class="item__content-heading">
+                                        Nghị quyết 57 là cơ hội có một không hai với các nhà khoa học
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/chinhphu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>12 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>90 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=10" class="body__item d-flex gap-3 flex-column gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title15.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Phá vỡ thỏa thuận ngừng bắn, Israel phát động không kích vào Lebanon" class="item__content-heading">
+                                        Phá vỡ thỏa thuận ngừng bắn, Israel phát động không kích vào Lebanon
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/tintuc.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>4 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>   
+                    </div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#ĐỔI MỚI</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=1" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item2">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#MỚI LẠ</h4>
+                        </div>    
+                        <div class="body__list d-flex gap-2 pt-3 pb-3">
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3 flex-column gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title16.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Mẫu xe Geely Monjaro dự kiến ra mắt thị trường Việt Nam với thiết kế nổi bật" class="item__content-heading">
+                                        Mẫu xe Geely Monjaro dự kiến ra mắt thị trường Việt Nam với thiết kế nổi bật
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/tintuc.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>20 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>1 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=12" class="body__item d-flex gap-3 flex-column gap-2">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title17.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Cô gái Bắc Ninh kể màn rước dâu chưa đầy 1 phút và tấm biển 'lạ' trước cổng" class="item__content-heading">
+                                        Cô gái Bắc Ninh kể màn rước dâu chưa đầy 1 phút và tấm biển 'lạ' trước cổng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/tienphong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>10 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>8 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=1" class="body__item d-flex gap-3 flex-column gap-2border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title18.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Ông Zelensky rắn về chuyện 'nợ nần' với Mỹ" class="item__content-heading">
+                                        Ông Zelensky rắn về chuyện 'nợ nần' với Mỹ
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/thegioi.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>12 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>12 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>   
+                    </div>
+                    <div class="section5__content-item section5__content-item1">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#THÀNH CÔNG</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=4" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=5" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=6" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title28.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Công ty của Warren Buffett lãi kỷ lục, nắm khối tiền mặt 334 tỷ USD" class="item__content-heading">
+                                        Công ty của Warren Buffett lãi kỷ lục, nắm khối tiền mặt 334 tỷ USD
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/dautu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>1 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=2" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title2.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc" class="item__content-heading">
+                                        Tổng Bí thư Tô Lâm tiếp Bí thư Quảng Tây, Trung Quốc
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/chinhphu.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>11 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>8 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=3" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title3.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine" class="item__content-heading">
+                                        Mỹ và Nga nhất trí xây dựng lộ trình chấm dứt xung đột ở Ukraine
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/congannhandan.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>19 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>20 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html>id=11" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title11.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam" class="item__content-heading">
+                                        Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoilaodong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>4 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>41 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#THẾ GIỚI</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html?id=8" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title8.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng" class="item__content-heading">
+                                        Thông qua 2 Nghị quyết về cơ cấu tổ chức của Chính phủ và cơ cấu số lượng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/hoahoctro.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>4 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=11" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title11.png" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam" class="item__content-heading">
+                                        Thái Lan, Indonesia bất lực trước cột mốc của U20 Việt Nam
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/nguoilaodong.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>4 giờ</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>41 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html?id=12" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title29.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Hàng trăm nạn nhân được giải cứu thành công từ trung tâm lừa đảo" class="item__content-heading">
+                                        Hàng trăm nạn nhân được giải cứu thành công từ trung tâm lừa đảo
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/congly.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>9 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#TIÊN TIẾN</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html>id=8" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html>id=7" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section5__content-item4"></div>
+                    <div class="section5__content-item section5__content-item3">
+                        <div class="content__item-heading d-flex align-items-center gap-1">
+                            <div class="item__heading-border"></div>
+                            <h4 class="item__heading-title m-0">#GIA ĐÌNH</h4>
+                        </div>
+                        <div class="content__list">
+                            <a href="./page.html>id=6" class="body__item d-flex gap-3 border-0">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title25.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="'Cha đẻ' ChatGPT đón con đầu lòng" class="item__content-heading">
+                                        'Cha đẻ' ChatGPT đón con đầu lòng
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/saigon.png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>3 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>14 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="./page.html>id=4" class="body__item d-flex gap-3">
+                                <div class="item__img rounded-2">
+                                    <img src="../assets/img/title27.webp" alt="">
+                                </div>
+                                <div class="item__content">
+                                    <h2 title="Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản" class="item__content-heading">
+                                        Toyota ngừng sản xuất dòng xe Corolla tại Nhật Bản
+                                    </h2>
+                                    <div class="item__footer">
+                                        <div class="item__footer-logo">
+                                            <img src="../assets/img/anninh(1).png" alt="">
+                                        </div>
+                                        <div class="item__footer-time">
+                                            <p>31 phút</p>
+                                        </div>
+                                        <div class="item__footer-line">
+                                            <p>141 liên quan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content__btn d-flex justify-content-center pb-3 pt-3">
+                    <button class="btn-link rounded-pill">Xem thêm <i class="fa-solid fa-chevron-right"></i></button>
+                </div>  
+            </div>
+         </section>
+        <!-- Kết thúc section5 -->
+
+        <!-- Phần footer -->
+        <footer class="footer">
+            <div class="footer__top">
+                <div class="containers">
+                    <div class="footer__header d-flex justify-content-between align-items-center">
+                        <div class="footer__header-logo">
+                            <img src="../assets/img/logo.png" alt="">
+                        </div>
+                        <div class="header__left-search position-relative">
+                            <div class="input__group input__group-footer d-flex align-items-center">
+                                <input type="text" class="input flex-grow-1 border-0 p-2" placeholder="Nhập nội dung tìm kiếm" >
+                                <button class="btn btn-search btn-search-footer p-0 fs-6">
+                                    <i class="fas fa-search p-2"></i>
+                                </button>
+                            </div>
+                            <div class="header__search-list footer__search-list position-absolute d-none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="containers">
+                <div class="footer__content">
+                    <p class="pt-3 pb-3 text-center m-0">
+                       <a href="#"><span class="bull">&bull;</span> Moscow</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tin Bão Tết Ất Tỵ</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tuyển Việt Nam</a> 
+                       <a href="#"><span class="bull">&bull;</span> Phạm Minh Chính</a> 
+                       <a href="#"><span class="bull">&bull;</span> Kết Quả Bóng Đá Rửa Tiền</a> 
+                       <a href="#"><span class="bull">&bull;</span> Giá Vàng Hôm Nay</a> 
+                       <a href="#"><span class="bull">&bull;</span> Bộ Chính Trị</a> 
+                       <a href="#"><span class="bull">&bull;</span> Washington</a> 
+                       <a href="#"><span class="bull">&bull;</span> Bóng Đá</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tin Tức</a> 
+                       <a href="#"><span class="bull">&bull;</span> Trump</a> 
+                       <a href="#"><span class="bull">&bull;</span> Lịch Thi Đấu C1</a> 
+                       <a href="#"><span class="bull">&bull;</span> Friedrich Merz</a> 
+                       <a href="#"><span class="bull">&bull;</span> Arsenal</a> 
+                       <a href="#"><span class="bull">&bull;</span> Real Madrid</a> 
+                       <a href="#"><span class="bull">&bull;</span> Xổ Số Miền Trung</a> 
+                       <a href="#"><span class="bull">&bull;</span> Vladimir Putin</a> 
+                       <a href="#"><span class="bull">&bull;</span> Bảng Xếp Hạng Ngoại Hạng Anh</a> 
+                       <a href="#"><span class="bull">&bull;</span> Châu Âu</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tô Lâm</a> 
+                       <a href="#"><span class="bull">&bull;</span> Pháp Luật Ukraine</a> 
+                       <a href="#"><span class="bull">&bull;</span> Xổ Số Miền Nam</a> 
+                       <a href="#"><span class="bull">&bull;</span> Xổ Số Miền Bắc</a> 
+                       <a href="#"><span class="bull">&bull;</span> Liên Bang Nga</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tử Vi</a> 
+                       <a href="#"><span class="bull">&bull;</span> Giá Cà Phê</a> 
+                       <a href="#"><span class="bull">&bull;</span> Thể Thao</a> 
+                       <a href="#"><span class="bull">&bull;</span> Đảng Ủy Chính Phủ</a> 
+                       <a href="#"><span class="bull">&bull;</span> Bóng Đá Việt Nam</a> 
+                       <a href="#"><span class="bull">&bull;</span> Cúp C2</a> 
+                       <a href="#"><span class="bull">&bull;</span> Chelsea</a> 
+                       <a href="#"><span class="bull">&bull;</span> Donald Trump</a> 
+                       <a href="#"><span class="bull">&bull;</span> NHNN</a> 
+                       <a href="#"><span class="bull">&bull;</span> Lãi Suất Huy Động</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tuổi Xông Đất</a> 
+                       <a href="#"><span class="bull">&bull;</span> Vietlott</a> 
+                       <a href="#"><span class="bull">&bull;</span> Thông Tư 29</a> 
+                       <a href="#"><span class="bull">&bull;</span> Báo Bóng Đá Mỹ</a> 
+                       <a href="#"><span class="bull">&bull;</span> Liverpool</a> 
+                       <a href="#"><span class="bull">&bull;</span> Mu</a> 
+                       <a href="#"><span class="bull">&bull;</span> Chủ Tịch HĐND Kiev</a> 
+                       <a href="#"><span class="bull">&bull;</span> Man City</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tin Thế Giới</a> 
+                       <a href="#"><span class="bull">&bull;</span> Lịch Thi Đấu Ngoại Hạng Anh</a> 
+                       <a href="#"><span class="bull">&bull;</span> Tổng Thống Mỹ</a> 
+                       <a href="#"><span class="bull">&bull;</span> Barcelona</a> 
+                       <a href="#"><span class="bull">&bull;</span> Lịch Âm</a> 
+                       <a href="#"><span class="bull">&bull;</span> Thường Vụ Tỉnh Ủy</a> 
+                       <a href="#"><span class="bull">&bull;</span> Ngày Thầy Thuốc Việt Nam</a> 
+                       <a href="#"><span class="bull">&bull;</span> Ngân Hàng Nhà Nước</a> 
+                       <a href="#"><span class="bull">&bull;</span> Ngoại Hạng Anh</a> 
+                       <a href="#"><span class="bull">&bull;</span> UBND</a> 
+                       <a href="#"><span class="bull">&bull;</span> Cúp C1</a> 
+                       <a href="#"><span class="bull">&bull;</span> Zalo Business Account</a> 
+                       <a href="#"><span class="bull">&bull;</span> Zalo Cloud</a>
+                    </p>
+                </div>
+                <div class="footer__level d-flex justify-content-between  pt-3 pb-1 ">
+                    <div class="level__left d-flex gap-4">
+                        <ul class="level__left-item m0">
+                            <LI><h4 class="fs-6">LIÊN HỆ</h4></LI>
+                            <LI><a href="#">Giới thiệu</a></LI>
+                            <LI><a href="#">Điều khoảng sử dụng</a></LI>
+                            <LI><a href="#">Chính sách bảo mật</a></LI>
+                            <LI><a href="#">Quảng cáo</a></LI>
+                        </ul>
+                        <ul class="level__left-item m0">
+                            <LI><h4 class="fs-6">KHÁC</h4></LI>
+                            <LI><a href="#">Tổng hợp</a></LI>
+                        </ul>
+                    </div>
+                    <div class="level__right">
+                        <p>Giấy phép thiết lập trang thông tin điện tử tổng hợp số 2025/GP-TTĐT do Sở Thông tin và Truyền thông TP. Hồ Chí Minh cấp ngày 10/02/2025.</p>
+                        <p>Đơn vị thiết lập: Công ty Cổ phần Truyền thông Tin Nhanh Việt Nam</p>
+                        <p>Địa chỉ: Tầng 12, tòa nhà VN Tower, số 123 Đường Trần Hưng Đạo, phường Bến Thành, quận 1, TP. Hồ Chí Minh</p>
+                        <p>Điện thoại: (028) 3-456-7890</p>
+                        <p>Tin Nhanh 24h tổng hợp và sắp xếp các thông tin tự động bởi chương trình máy tính</p>
+                        <p>cập nhật tin tức mới nhất trong nước và quốc tế.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Phần js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/signin.js"></script>
+    <script src="../assets/js/login.js"></script>
+    <script>
+        const arrContentstopics = document.querySelector('.section5 .section5__content');
+        const btnindex = document.querySelector('.section5 .content__btn button');
+
+        btnindex.addEventListener('click', () => {
+            if (arrContentstopics.length === 0) return; 
+            const bodyItems = arrContentstopics.querySelectorAll('.section5__content-item'); 
+
+            bodyItems.forEach(item => {
+                const clonedItem = item.cloneNode(true); 
+                arrContentstopics.appendChild(clonedItem); 
+            });
+            btnindex.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

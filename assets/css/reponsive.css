@@ -1,0 +1,151 @@
+@media(max-width: 999px){
+    /* phan chung */
+    .containers{
+        width: 800px;
+    }
+    /* phan header */
+    .input__group{
+        width: 400px;
+        margin-left: 40px;
+    }
+    .header__left-search .header__search-list{
+        left: 40px;
+    }
+    /* phan section1 */
+    .navbar__menu-topic .menu__topic-item:nth-child(2){
+        display: none;
+    }
+    .navbar{
+        min-width: 800px;
+    }
+    /* phan section2 */
+    .section2__body-extra{
+        width: 280px;
+    }
+    .body__content .content__list .item__img{
+        flex-shrink: 0;
+        width: 140px;
+        align-self: flex-start;
+    }
+    .btn-link{
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    /* Phần section3 và section4 */
+    .section4__body-extra,
+    .section3__body-extra{
+        width: 280px;
+    }
+    /* Phần section6 */
+    .section6__body-extra{
+        width: 280px;
+    }
+    /* Phần footer */
+    .footer__level{
+        flex-direction: column;
+        align-items: center;
+    }
+    .level__right p{
+        text-align: center;
+    }
+}
+@media(max-width: 799px){
+     /* phan chung */
+     .containers{
+        width: auto;
+        max-width: 500px;
+    }
+    /* phan header */
+    .header__left-search{
+        display: none;
+    }
+    /* Phần section1 */
+    .navbar{
+        min-width: auto;
+    }
+    .navbar__menus{
+        justify-content: space-between;
+    }
+    .navbar .containers{
+        width: 100%;
+    }
+    .menu__full-item{
+        width: 100%;
+    }
+    .navbar__menu-full{
+        overflow: auto;
+        max-height: 100vh;
+    }
+    .navbar__menu-full .menu__full-item:last-child{
+        padding-bottom: 20px;
+    }
+    .menu__full-item ul{
+        padding-left: 10px;
+    }
+    /* Phần section2 */
+    .section2__body-extra{
+        display: none;
+    }
+    .body__content .content__list .item__img{
+        width: 128px;
+    }
+    .body__title .item__content-heading{
+        font-size: 28px;
+    }
+    .body__list .item__content-heading{
+        font-size: 18px;
+    }
+    .content__list .item__content-heading{
+        font-size: 18px;
+    }
+    .body__list .item__footer-line{
+        display: none;
+    }
+    .extra__list-slider{
+        margin: 0;
+    }
+     /* Phần section3 và section4 */
+    .section4__body-extra,
+    .section3__body-extra{
+        display: none;
+    }
+    /* Phần section5 */
+    .section5__content{
+        flex-direction: column;
+    }
+    .section5__content-item{
+        width: 100%;
+    }
+    .section5__content-item4{
+        display: none;
+    }
+    /* Phần section6 */
+    .section6__body-extra{
+        display: none;
+    }
+    /* Phần section7 */
+    .section7__body-extra{
+        display: none;
+    }
+    /* Phần section8 */
+    .section8{
+        background-color: #f1f1f1;
+    }
+    .section8__header-left{
+        padding: 12px;
+        display: block;
+    }
+    .input__group{
+        width: 100%;
+        margin-left: 0;
+    }
+    .header__left-search .header__search-list{
+        left: 12px;
+        top: calc(100% - 12px);
+        width: calc(100% - 24px);
+    }
+     /* Phần section6 */
+    .section6__body-extra{
+        display: none;
+    }
+}

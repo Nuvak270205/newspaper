@@ -172,12 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     const icon_search = document.querySelector('.right__icon-search');
     const searchMobile = document.querySelector('.section8');
+    const pagetopic = document.querySelectorAll('.navbar__menu-topic .menu__topic-item');
 
     const heightHeader = header.clientHeight;
+    console.log(heightHeader);
     let tops1 = section1.offsetTop;
     let isMenuOpen = false;
     let isSearchOpen = false;
-    let ismenuMobile = 0;
     let isSearchFooterOpen = false;
     let isSearchMobile = false;
     let isSearchMobileOpen = false;
@@ -231,33 +232,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateMenuHeight() {
         if (!menuFull.classList.contains('d-none')) {
             let height = 0;
-            if (ismenuMobile === 1) {
-                height = container.clientHeight - heightHeader;
-            }else{
-                height = container.clientHeight;
-            }
-            
+            container.style.height = 'auto';
+            height = container.clientHeight;
 
             if (window.innerWidth < 800) {
                 document.body.classList.add('overflow-hidden');
 
                 if (window.scrollY <= tops1) {
-                    container.style.height = `${height + heightHeader}px`;
-                    ismenuMobile = 1;
+                    container.style.height = `${height + heightHeader - window.scrollY}px`;
                 }else{
                     container.style.height = `${height}px`;
-                    ismenuMobile = 0;
                 }
             }else {
                 document.body.classList.remove('overflow-hidden');
                 isMenuOpen = false; 
                 container.style.height = 'auto';
-                ismenuMobile = 0;
             }
             isMenuOpen = true; 
         }else{
             isMenuOpen = false;
-            ismenuMobile = 0;
+            document.body.classList.remove('overflow-hidden');
         } 
     }
     
@@ -298,14 +292,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    input.addEventListener('keyup', () => {
+    input.addEventListener('keyup', (e) => {
         searchNews();
+        if(e.key === 'Enter'){
+            let values = input.value.trim();
+            if (values) {
+                window.location.href = `./search.html?value=${values}`;
+            }else{
+                alert('Vui lòng nhập từ khóa tìm kiếm!');
+            }
+        }
     });
 
     search.addEventListener('click', () => {
         let values = input.value.trim();
         if (values) {
             window.location.href = `./search.html?value=${values}`;
+        }else{
+            alert('Vui lòng nhập từ khóa tìm kiếm!');
         }
     });
 
@@ -346,14 +350,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    inputFooter.addEventListener('keyup', () => {
+    inputFooter.addEventListener('keyup', (e) => {
         searchFooterNews();
+        if(e.key === 'Enter'){
+            let values = inputFooter.value.trim();
+            if (values) {
+                window.location.href = `./search.html?value=${values}`;
+            }else{
+                alert('Vui lòng nhập từ khóa tìm kiếm!');
+            }
+        }
     });
     
     searchFooter.addEventListener('click', () => {
         let values = inputFooter.value.trim();
         if (values) {
             window.location.href = `./search.html?value=${values}`;
+        }else{
+            alert('Vui lòng nhập từ khóa tìm kiếm!');
         }
     });
 
@@ -396,8 +410,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
    
-    inputMobile.addEventListener("keyup", () => {
+    inputMobile.addEventListener("keyup", (e) => {
         searchMobileNews();
+        if (e.key === "Enter") {
+            let values = inputMobile.value.trim();
+            if (values) {
+                window.location.href = `./search.html?value=${values}`;
+            }else{
+                alert('Vui lòng nhập từ khóa tìm kiếm!');
+            }
+        }
     });
 
    
@@ -405,6 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let values = inputMobile.value.trim();
         if (values) {
             window.location.href = `./search.html?value=${values}`;
+        }else{
+            alert('Vui lòng nhập từ khóa tìm kiếm!');
         }
     });
 
@@ -448,6 +472,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    pagetopic.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            let id = item.innerHTML;
+            let value = id.slice(1, id.length).trim();
+            window.location.href = `./pagetopic.html?id=${value}`;
+        });
+    });
+
     function updateUI() {
         const icon_block = document.querySelector('.right__icon-block');
         const icon_search = document.querySelector('.right__icon-search');
@@ -464,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menu_topic.classList.remove('d-none');
             footer_left.classList.remove('d-none');
             icon_search.classList.add('d-none');
+            searchMobile.classList.add('d-none');
         }
     }
 

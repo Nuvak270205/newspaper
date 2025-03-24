@@ -377,7 +377,7 @@ const arrpage = [
         item: "Pháp luật",
         title: "Bắt đối tượng trêu ghẹo cô gái, đập phá quán ăn ở TPHCM",
         author: "Trọng Nhân",
-        tags: "Công An, Huỷ Hoại Tài Sản",
+        tags: "Công An, Huỷ Hoại Tài Sản",
         time: "6-3-2025 20:00",
         introduce: [
             "Phương vào quán ăn mua về và có hành động trêu ghẹo phụ nữ. Khi nhân viên quán phản ứng thì Phương doạ đánh người, đập phá quán ăn.",

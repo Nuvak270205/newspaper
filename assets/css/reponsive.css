@@ -40,6 +40,13 @@
     .section6__body-extra{
         width: 280px;
     }
+    /* Phần section9 */
+    .section9__body-list{
+        flex-wrap: wrap;
+    }
+    .body__list-item{
+        width: 100%;
+    }
     /* Phần footer */
     .footer__level{
         flex-direction: column;
@@ -82,6 +89,13 @@
     .menu__full-item ul{
         padding-left: 10px;
     }
+    .header__right i{
+        font-size: 20px;
+    }
+    .right__icon-user,
+    .right__icon-search div{
+        padding: 0 4px;
+    }
     /* Phần section2 */
     .section2__body-extra{
         display: none;
@@ -101,6 +115,28 @@
     .body__list .item__footer-line{
         display: none;
     }
+    .body__list {
+        flex-wrap: wrap;
+    }
+    .body__list .body__item{
+        width: 100%;
+        flex-direction: row;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 16px;
+    }
+    .body__list .body__item:first-child{
+        padding-top: 0;
+        border-top: none;
+    }
+    .body__list .body__item .item__img{
+        width: 128px;
+        aspect-ratio: 155/ 100;
+        flex-shrink: 0;
+    }
+    .body__list .body__item .item__img img{
+        width: 100%;
+        height: 100%;
+    }
     .extra__list-slider{
         margin: 0;
     }
@@ -118,6 +154,20 @@
     }
     .section5__content-item4{
         display: none;
+    }
+    .section5__content-item2 .body__list .body__item{
+        width: 100%;
+        flex-direction: row !important;
+        border: none;
+    }
+    .section5__content-item2 .body__list .body__item .item__img{
+        width: 60px;
+        aspect-ratio: 1/1;
+        flex-shrink: 0;
+    }
+    .section5__content-item2 .body__list .body__item .item__img img{
+        width: 100%;
+        height: 100%;
     }
     /* Phần section6 */
     .section6__body-extra{
@@ -147,5 +197,27 @@
      /* Phần section6 */
     .section6__body-extra{
         display: none;
+    }
+    /* Phần section9 */
+    .section9 .body__main-title{
+        margin-top: 30px;
+    }
+    .section9__body-main .body__list .body__item{
+        width: 100% !important;
+    }
+    .section9 .body__item{
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .section9__body-main .body__list .body__item{
+        padding-top: 16px;
+    }
+    .section9__body-main .body__list .body__item:first-child{
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    /* Phần section10 */
+    .section10 .body__item:first-child{
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 }

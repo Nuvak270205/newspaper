@@ -27,11 +27,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-btnlogin.addEventListener('click', () => {
-    usertb.style.opacity = 0;
-
-});
-
 checkradio.addEventListener('change', () => {
     if (checkradio.checked) {
         btnlogin.disabled = false;
@@ -97,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (authModal && userDropdown) {
         authModal.addEventListener("show.bs.modal", function () {
-            userDropdown.classList.add("d-none"); 
+            userDropdown.style.opacity = 0; 
         });
 
         authModal.addEventListener("hidden.bs.modal", function () {

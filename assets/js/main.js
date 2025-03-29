@@ -440,7 +440,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (values === "") {
             searchListMobile.innerHTML = "";
-            searchListMobile.classList.add("d-none");
             return;
         }
 

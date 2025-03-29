@@ -27,6 +27,13 @@
         width: 140px;
         align-self: flex-start;
     }
+    .content__list-extend{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        left: 0;
+
+    }
     .btn-link{
         font-size: 16px;
         padding: 10px 20px;

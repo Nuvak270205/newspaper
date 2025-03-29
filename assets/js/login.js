@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const passregister = document.querySelector('.registerPassword');
     const btnregister = document.querySelector('.switchToLogin');
     const closemodel = document.querySelector('.modal-header .btn-close');
-    const obStores = JSON.parse(localStorage.getItem("user")) || {};
-    console.log(obStores);
 
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

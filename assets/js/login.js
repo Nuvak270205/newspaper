@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "../html/index.html";
     });
 
-    document.querySelector("#registerForm form").addEventListener("click", (e) => {
+    document.querySelector("#registerForm form").addEventListener("submit", (e) => {
         e.preventDefault();
         if (!checkRegister()) return;
 
